@@ -1,14 +1,6 @@
 import React from "react";
 
-export const calculateTotal = (feedback) => {
-  return feedback.good + feedback.neutral + feedback.bad;
-};
-
-export default function Feedback({ feedback }) {
-  const total = calculateTotal(feedback);
-  if (total === 0) {
-    return <p>No feedback given</p>;
-  }
+export default function Feedback({ feedback, total, positivePercentage }) {
   return (
     <div>
       <ul>
@@ -25,7 +17,7 @@ export default function Feedback({ feedback }) {
           <p>Total: {total}</p>
         </li>
         <li>
-          <p>Positive: {Math.round((feedback.good / total) * 100)}%</p>
+          <p>Positive: {positivePercentage}%</p>
         </li>
       </ul>
     </div>
